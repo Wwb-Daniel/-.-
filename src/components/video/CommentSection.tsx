@@ -367,17 +367,18 @@ const CommentSection: React.FC<CommentSectionProps> = ({ videoId, onClose, onCom
       updateVideoCommentsCount(videoId);
 
       toast({
-        title: "Comentario publicado",
-        description: parentId ? "Tu respuesta ha sido publicada" : "Tu comentario ha sido publicado",
+        type: 'success',
+        title: parentId ? "Respuesta publicada" : "Comentario publicado",
+        message: parentId ? "Tu respuesta ha sido publicada" : "Tu comentario ha sido publicado"
       });
 
     } catch (error: any) {
       console.error('Error posting comment:', error);
       setError('Failed to post comment');
       toast({
+        type: 'error',
         title: "Error",
-        description: "No se pudo publicar el comentario",
-        variant: "destructive"
+        message: "No se pudo publicar el comentario"
       });
     } finally {
       setIsSubmitting(false);
@@ -431,16 +432,17 @@ const CommentSection: React.FC<CommentSectionProps> = ({ videoId, onClose, onCom
       }
 
       toast({
+        type: 'success',
         title: "Comentario eliminado",
-        description: "El comentario ha sido eliminado correctamente.",
+        message: "El comentario ha sido eliminado correctamente."
       });
 
     } catch (error: any) {
       console.error('Error deleting comment:', error);
       toast({
+        type: 'error',
         title: "Error",
-        description: "No se pudo eliminar el comentario: " + error.message,
-        variant: "destructive"
+        message: "No se pudo eliminar el comentario: " + error.message
       });
     }
   };

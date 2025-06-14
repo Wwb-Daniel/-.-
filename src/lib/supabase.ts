@@ -71,7 +71,7 @@ export type Video = {
   comments_count: number;
   views_count: number;
   audio_track_id: string | null;
-  video_volume: number;
+  video_volume?: number;
   audio_volume: number;
   user_profile?: {
     id: string;

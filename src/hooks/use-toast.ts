@@ -5,6 +5,7 @@ interface Toast {
   title: string;
   description?: string;
   variant?: 'default' | 'destructive';
+  type?: 'success' | 'error';
 }
 
 interface UseToastReturn {
@@ -16,9 +17,9 @@ interface UseToastReturn {
 export function useToast(): UseToastReturn {
   const [toasts, setToasts] = useState<Toast[]>([]);
 
-  const toast = useCallback(({ title, description, variant = 'default' }: Omit<Toast, 'id'>) => {
+  const toast = useCallback(({ title, description, variant = 'default', type }: Omit<Toast, 'id'>) => {
     const id = Math.random().toString(36).substring(7);
-    setToasts((prevToasts) => [...prevToasts, { id, title, description, variant }]);
+    setToasts((prevToasts) => [...prevToasts, { id, title, description, variant, type }]);
 
     // Auto dismiss after 5 seconds
     setTimeout(() => {

@@ -25,7 +25,17 @@ export default defineConfig({
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom', 'react-router-dom'],
-          ui: ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu']
+          ui: [
+            '@radix-ui/react-dialog',
+            '@radix-ui/react-dropdown-menu',
+            '@radix-ui/react-avatar',
+            '@radix-ui/react-slot',
+            '@radix-ui/react-context',
+            '@radix-ui/react-primitive',
+            '@radix-ui/react-use-callback-ref',
+            '@radix-ui/react-use-is-hydrated',
+            '@radix-ui/react-use-layout-effect'
+          ]
         }
       }
     },

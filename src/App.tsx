@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useAuthStore } from './store/authStore';
 
 // Layout
@@ -21,6 +21,12 @@ import AudioTracksPage from './pages/AudioTracksPage';
 import AudioDetailsPage from './pages/AudioDetailsPage';
 import SettingsPage from './pages/SettingsPage';
 import BlockedUsersPage from './pages/BlockedUsersPage';
+
+// Componente para manejar redirecciones
+function RedirectToHome() {
+  const location = useLocation();
+  return <Navigate to="/" state={{ from: location }} replace />;
+}
 
 function App() {
   const { initialize, initialized } = useAuthStore();
@@ -66,10 +72,11 @@ function App() {
             <Route path="audio/:id" element={<AudioDetailsPage />} />
             <Route path="settings" element={<SettingsPage />} />
             <Route path="settings/blocked-users" element={<BlockedUsersPage />} />
+            <Route path="*" element={<RedirectToHome />} />
           </Route>
           
           {/* Catch-all route */}
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<RedirectToHome />} />
         </Routes>
         
         {/* Global Toast Container */}

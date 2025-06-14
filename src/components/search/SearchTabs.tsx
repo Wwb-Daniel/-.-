@@ -14,6 +14,7 @@ interface Video {
   user_id: string;
   likes_count: number;
   views_count: number;
+  video_volume?: number;
   user_profile?: {
     username: string;
     avatar_url?: string;

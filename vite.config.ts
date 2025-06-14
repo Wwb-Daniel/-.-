@@ -20,33 +20,7 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist',
-    sourcemap: true,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          ui: [
-            '@radix-ui/react-dialog',
-            '@radix-ui/react-dropdown-menu',
-            '@radix-ui/react-avatar',
-            '@radix-ui/react-slot',
-            '@radix-ui/react-context',
-            '@radix-ui/react-primitive',
-            '@radix-ui/react-use-callback-ref',
-            '@radix-ui/react-use-is-hydrated',
-            '@radix-ui/react-use-layout-effect'
-          ]
-        }
-      }
-    },
-    minify: 'terser',
-    target: 'es2020'
-  },
-  optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom', 'framer-motion', 'lucide-react']
-  },
-  define: {
-    global: 'globalThis'
+    sourcemap: true
   },
   server: {
     port: 3000,

@@ -13,6 +13,7 @@ interface Video {
   thumbnail_url: string;
   user_id: string;
   audio_track_id: string | null;
+  video_volume?: number;
   audio_volume: number;
   likes_count: number;
   comments_count: number;

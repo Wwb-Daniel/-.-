@@ -24,9 +24,8 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'ui-vendor': ['framer-motion', 'lucide-react'],
-          'utils-vendor': ['date-fns', 'clsx', 'tailwind-merge', 'zustand']
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+          ui: ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu']
         }
       }
     },
@@ -38,5 +37,10 @@ export default defineConfig({
   },
   define: {
     global: 'globalThis'
+  },
+  server: {
+    port: 3000,
+    strictPort: true,
+    host: true
   }
 });
